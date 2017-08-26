@@ -37,20 +37,20 @@ kind: Deployment
 metadata:
     name: webapp
 spec:
-    replicas: 2
-    template:
-        metadata:
-            labels:
-                app: webapp-demo
-                env: test
-        spec:
-            containers:
-            - name: uodashboard
-              image: mohitsharma44/uodashboard-container:latest
-              ports:
-              - name: http
-                containerPort: 8888
-                protocol: TCP
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: webapp-demo
+        env: test
+    spec:
+      containers:
+        - name: uodashboard
+          image: mohitsharma44/uodashboard-container:latest
+          ports:
+            - name: http
+              containerPort: 8888
+              protocol: TCP
 ```
 
 The structure of the deployment is similar to replica sets.
