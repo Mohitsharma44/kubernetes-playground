@@ -29,6 +29,30 @@ set or Deployment. Deployment provides a nice layer of abstraction over rs whose
 effects will be evident at later stage. For now, we'll just accept this with a
 grain of salt and use deployment.
 
+Our deployment file looks like this:
+
+``` yaml
+apiVersion: "apps/v1beta1"
+kind: Deployment
+metadata:
+    name: webapp
+spec:
+    replicas: 2
+    template:
+        metadata:
+            labels:
+                app: webapp-demo
+                env: test
+        spec:
+            containers:
+            - name: uodashboard
+              image: mohitsharma44/uodashboard-container:latest
+              ports:
+              - name: http
+                containerPort: 8888
+                protocol: TCP
+```
+
 The structure of the deployment is similar to replica sets.
 - It begins with an `apiVersion`
 declaration. Deployment is present in `apps/v1beta1` apiVersion
@@ -67,17 +91,17 @@ A simple NodePort service looks like this:
 apiVersion: v1
 kind: Service
 metadata:
-    name: webapp-svc
+name: webapp-svc
 spec:
-    type: NodePort
-    selector:
-        app: webapp-demo
-        env: test
-    ports:
-    - name: http
-      protocol: "TCP"
-      port: 8888
-      nodePort: 30000
+type: NodePort
+selector:
+app: webapp-demo
+env: test
+ports:
+- name: http
+protocol: "TCP"
+port: 8888
+nodePort: 30000
 
 ```
 
