@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: uodashboard
-          image: mohitsharma44/uodashboard:latest
+          image: mohitsharma44/uodashboard-container:latest
           ports:
             - name: http
               containerPort: 8888
