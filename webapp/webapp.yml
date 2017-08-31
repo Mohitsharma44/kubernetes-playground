@@ -12,7 +12,8 @@ spec:
     spec:
       containers:
         - name: uodashboard
-          image: mohitsharma44/uodashboard-container:latest
+          image: mohitsharma44/uodashboard-container:dev
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8888
