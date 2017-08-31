@@ -147,3 +147,8 @@ kubectl delete svc webapp-svc
 ```
 
 > svc is a shorthand for service
+
+To be able to use the dashboard, make sure you have the server running on port 8888
+check the github.com/Mohitsharma44/uodashboard for more info
+
+> In the later sections, we shall make the server run as a service as well.
