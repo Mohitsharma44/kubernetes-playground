@@ -46,10 +46,10 @@ spec:
     spec:
       containers:
         - name: uodashboard
-          image: mohitsharma44/uodashboard-container:latest
+          image: mohitsharma44/uodashboard-container:dev
           ports:
             - name: http
-              containerPort: 8888
+              containerPort: 30000
               protocol: TCP
 ```
 
@@ -91,17 +91,17 @@ A simple NodePort service looks like this:
 apiVersion: v1
 kind: Service
 metadata:
-name: webapp-svc
-spec:
-type: NodePort
-selector:
-app: webapp-demo
-env: test
-ports:
-- name: http
-protocol: "TCP"
-port: 8888
-nodePort: 30000
+  name: webapp-svc
+  spec:
+    type: NodePort
+    selector:
+      app: webapp-demo
+      env: test
+    ports:
+      - name: http
+        protocol: "TCP"
+        port: 30000
+        nodePort: 30000
 
 ```
 
@@ -111,7 +111,7 @@ In this case, we specify the `name` in `metadata` as the name of the service.
 be bounded to this service (multiple services can bind same pods/ deployments)
 - Finally we have `ports` where we mention the `protocol` that will be used for
 communicating. We want the traffic comming on the NodePort` 30000 to be routed
-to one of the containers listening on `port` (8888 in this case, where our
+to one of the containers listening on `port` (30000 in this case, where our
 python app is listening for HTTP traffic)
 
 
@@ -147,8 +147,3 @@ kubectl delete svc webapp-svc
 ```
 
 > svc is a shorthand for service
-
-To be able to use the dashboard, make sure you have the server running on port 8888
-check the github.com/Mohitsharma44/uodashboard for more info
-
-> In the later sections, we shall make the server run as a service as well.
