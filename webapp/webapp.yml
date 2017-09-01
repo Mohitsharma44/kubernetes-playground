@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
         - name: uodashboard
-          image: mohitsharma44/uodashboard-container:dev
+          image: mohitsharma44/uodashboard-container:master
           imagePullPolicy: Always
           ports:
             - name: http
