@@ -114,6 +114,10 @@ communicating. We want the traffic comming on the NodePort` 30000 to be routed
 to one of the containers listening on `port` (30000 in this case, where our
 python app is listening for HTTP traffic)
 
+> Which backend pod to use is decided based on the SessionAffinity of the Service.
+> By default, the choice is round-robin. This can be changed by setting
+> service.spec.sessionAffinity (another example is "ClientIP". "None" = round robin)
+
 
 ### Run the setup
 
