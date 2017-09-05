@@ -14,7 +14,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-        name: default-http-backend
+      - name: default-http-backend
         image: gcr.io/google_containers/defaultbackend:1.0
         livenessProbe:
           httpGet:
