@@ -27,7 +27,7 @@ doesn't match the forwarding rules), we will use `gcr.io/google_containers/defau
 **TLS**
 - We will use self signed certificate
 
-> * Since we are using hostname as foo.bar and the HAProxy ingress will be using
+> *Since we are using hostname as foo.bar and the HAProxy ingress will be using
 > this SNI for forwarding the connetion to the service, you must add `foo.bar`
 > in your /etc/hosts file.
 > See the issue: https://github.com/kubernetes/ingress/issues/1303
