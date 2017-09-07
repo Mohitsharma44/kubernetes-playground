@@ -10,22 +10,31 @@ deployment).
 > For more information about the webapp, refer the repo link.
 
 Some information for the demo:
+
 **Webapp**
+
 - The webapp container is listening on port 30000
 - The webapp-svc (NodePort) service is also listening on port 30000
 (and forwarding the requests to the backend webapps listening on port 30000)
 - The webapp-svc service will serve 2 instances (`replicas`) of webapp
+
 **HAproxy/ Ingress**
+
 - The HAProxy image being used is pulled from `quay.io/jcmoraisjr/haproxy-ingress`
 - This HAProxy needs a default backend service (for serving all requests that
 doesn't match the forwarding rules), we will use `gcr.io/google_containers/defaultbackend:1.0`
 - The Hostname will be `foo.bar`*
 - The Ingress will be listening for HTTP and HTTPS (plus HAProxy's stat) requests
+
 **RBAC**
+
 - For Role Based Access Control, we will use the sample example from
 `https://github.com/kubernetes/ingress/blob/master/examples/rbac/haproxy/ingress-controller-rbac.yml`
+
 **TLS**
+
 - We will use self signed certificate
+
 
 > *Since we are using hostname as foo.bar and the HAProxy ingress will be using
 > this SNI for forwarding the connetion to the service, you must add `foo.bar`
