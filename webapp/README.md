@@ -12,7 +12,7 @@ Our aim is to convert this application into a docker container that can be
 controlled using kubernetes.
 
 We have built an image from Dockerfile and pushed it to the dockerhub:
-https://hub.docker.com/r/mohitsharma44/uodashboard/
+https://hub.docker.com/r/mohitsharma44/uodashboard-container/
 
 In this example, we will look at writing a yml file for kubernetes deployment.
 To accompany the deployment, we will also create a service that will expose
